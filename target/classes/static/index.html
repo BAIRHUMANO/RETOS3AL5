@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INICIO</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjears/jquery/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="icon" href="img/icon.png">
+</head>
+<body>
+    <div class="Titulo-Index">
+        <h1>CABAÑAS EL PARAISO</h1>
+
+        <div>
+            <p class="container unauthenticated">Para iniciar sesión con GitHub haz click <a href="/oauth2/authorization/github">aquí</a></p>
+        </div>
+
+        <div class="container authenticated">Bienvenido <span id="usuario"></span><br>
+            <button class="btn btn-primary" onclick="document.location.href='html/menu.html'">Continuar</button>
+        </div>
+        
+    </div>
+
+    <script type="text/javascript">
+        $.get("/user", function (data){
+            $("#usuario").html(data.name);
+            $(".unauthenticated").hide();
+            $(".authenticated").show();
+        });
+        </script>
+    
+</body>
+</html>
